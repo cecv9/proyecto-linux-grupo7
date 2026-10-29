@@ -1,0 +1,9 @@
+==================================================
+ REPORTE DEL SISTEMA - 2026-10-28 21:27:15
+==================================================
+ Hostname................: servidor-grupo7
+ Usuarios conectados.....: 3
+ Disco principal.........: 47G libres de 55G (11% usado)
+ RAM disponible..........: 6.5Gi de 7.7Gi
+ Contenedores Docker.....: Docker no instalado
+==================================================
