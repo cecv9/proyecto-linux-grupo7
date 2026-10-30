@@ -1,0 +1,35 @@
+Fase 4 - Punto de control 6: snapshot de cierre
+Proyecto Final ISL135 - Grupo 7
+Fecha: 2026-10-29, America/El_Salvador
+Ejecución: host Debian, no dentro de la VM
+
+Comando de identificación:
+$ VBoxManage list runningvms
+
+Salida:
+"Debian 13" {897b84d0-4c02-4799-8ea0-58dac08a6e3c}
+
+Comando de creación:
+$ VBoxManage snapshot "Debian 13" take "04-docker"
+
+Salida:
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+Snapshot taken. UUID: d007e195-5ad2-4ea4-95ac-0adfeb8854fb
+
+Comando de verificación:
+$ VBoxManage snapshot "Debian 13" list
+
+Salida:
+   Name: 00-base-instalada (UUID: 851df583-ca55-40c1-a15c-40d9627c763f)
+      Name: 03-git (UUID: d63f9fe9-a4d8-4c9f-98ba-c34984b29838)
+         Name: 04-docker (UUID: d007e195-5ad2-4ea4-95ac-0adfeb8854fb) *
+
+Verificación:
+[OK] El snapshot 04-docker fue creado al 100%.
+[OK] UUID: d007e195-5ad2-4ea4-95ac-0adfeb8854fb.
+[OK] El listado de VirtualBox confirma su existencia y lo marca con *.
+
+Estado del repositorio antes del snapshot:
+Commit: 1e582b6
+Remoto: 618c4df..1e582b6 main -> main
+Branch: ## main...origin/main, limpio y sincronizado.
