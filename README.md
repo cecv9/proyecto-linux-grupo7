@@ -5,12 +5,12 @@ el **Proyecto Final de Introducción al Software Libre (ISL135)**.
 
 ## Integrantes
 
-| Integrante | Nombre | Usuario de GitHub | Aporte principal |
-|---|---|---|---|
-| 1 | Carlos Enoc Calzada Vargas | [@cecv9](https://github.com/cecv9) | Coordinación, entorno Linux y documentación final |
-| 2 | Azucena del Carmen Castillo Zepeda | [@cz08008-zuz](https://github.com/cz08008-zuz) | Automatización y control de versiones |
-| 3 | Ronie Odir Portillo Consuegra | [@pc15016-Ronnie](https://github.com/pc15016-Ronnie) | Docker y servidor web base |
-| 4 | Pendiente por confirmar | Pendiente | Imagen personalizada, redes, volúmenes y pruebas |
+| Integrante | Nombre                             | Usuario de GitHub                                    | Aporte principal                                  |
+| ---------- | ---------------------------------- | ---------------------------------------------------- | ------------------------------------------------- |
+| 1          | Carlos Enoc Calzada Vargas         | [@cecv9](https://github.com/cecv9)                   | Coordinación, entorno Linux y documentación final |
+| 2          | Azucena del Carmen Castillo Zepeda | [@cz08008-zuz](https://github.com/cz08008-zuz)       | Automatización y control de versiones.            |
+| 3          | Ronie Odir Portillo Consuegra      | [@pc15016-Ronnie](https://github.com/pc15016-Ronnie) | Docker y servidor web base                        |
+| 4          | Pendiente por confirmar            | Pendiente                                            | Imagen personalizada, redes, volúmenes y pruebas  |
 
 ## Descripción
 
