@@ -1,0 +1,67 @@
+Fase 4 - Punto de control 5: ejecución de hello-world
+Proyecto Final ISL135 - Grupo 7
+
+Comando:
+$ docker run hello-world
+
+Salida:
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+4f5508d6e7d0: Pull complete
+d5e1e6e4b2bf5: Pull complete
+Digest: sha256:c567b231f65614088711a75f31518a064258a51d442117a3e771a3a8fdb78ef
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub (amd64).
+ 3. The Docker daemon created a new container from that image which runs the executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it to your terminal.
+
+Verificación:
+[OK] El cliente contactó al daemon, descargó la imagen y ejecutó el contenedor de prueba.
+[OK] El mensaje Hello from Docker! confirma que la instalación funciona.
+
+Evidencia visual:
+F04_03_hello_world_01_ejecucion.png
+SHA-256: 50e32c2a88bbc3363c76439384a634d7104a3be59d7f1eed8fad8341b603ff4a
+
+Comando:
+$ docker ps -a
+
+Salida:
+CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS   NAMES
+794f8a59896e   hello-world   "/hello"   About a minute ago   Exited (0) About a minute ago   eloquent_williams
+
+Verificación:
+[OK] El contenedor terminado se conserva y salió con código 0.
+
+Evidencia visual:
+F04_03_docker_ps_a.png
+SHA-256: bff07929711a541c9d368e3e2b088d7b460a71a82de487ea4287e0dede19b5d8
+
+Comando:
+$ docker images
+
+Salida:
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest   c567b231f656       25.9kB         9.49kB   U
+
+Verificación:
+[OK] La imagen local hello-world:latest está disponible y vinculada al contenedor de prueba.
+
+Cierre del punto de control 5:
+[OK] docker run hello-world muestra Hello from Docker!
+[OK] docker ps -a muestra el contenedor con Exited (0).
+[OK] docker images muestra la imagen local hello-world:latest.
+
+Evidencia visual:
+F04_03_docker_images.png
+SHA-256: 371f13851d454cde18d263894bdcfcb051f3ce72e4fdb6ebaa01252296be1e30
+
+Vista consolidada:
+F04_03_hello_world.png
+SHA-256: 0f0ccdd4ae65a654e751c7f5dd05d560aa8fe00f608ee1a5cb56127af4698499

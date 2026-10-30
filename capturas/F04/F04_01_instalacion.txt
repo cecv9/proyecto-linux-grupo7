@@ -1,0 +1,226 @@
+Fase 4 - Punto de control 2: instalación desde el repositorio oficial
+Proyecto Final ISL135 - Grupo 7
+
+Comando:
+$ sudo apt update
+
+Salida verificable:
+[sudo] contraseña para adminsys:
+Obj:1 http://deb.debian.org/debian trixie InRelease
+Obj:2 http://security.debian.org/debian-security trixie-security InRelease
+Des:3 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+Descargados 47.3 kB en 0s (133 kB/s)
+Se pueden actualizar 4 paquetes. Ejecute «apt list --upgradable» para verlos.
+
+Verificación:
+[OK] apt update completó la lectura de índices y volvió al prompt sin errores.
+
+Evidencia visual:
+F04_01_apt_update.png
+SHA-256: bbe9ff58f71e1fe6720f1c1ff4981e9062dfdaced80081d1df959181c59e04c4
+
+Comando:
+$ sudo apt install -y ca-certificates curl
+
+Salida:
+ca-certificates ya está en su versión más reciente (20250419+deb13u1).
+curl ya está en su versión más reciente (8.14.1-2+deb13u7).
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 4
+
+Verificación:
+[OK] ca-certificates y curl están instalados y actualizados.
+
+Evidencia visual:
+F04_01_prerequisitos.png
+SHA-256: 758a08671e8f8df7720b3b7a1900d27d5b089a1f8118906f624275670c566749
+
+Comando:
+$ sudo install -m 0755 -d /etc/apt/keyrings
+
+Salida:
+(sin salida)
+
+Verificación:
+[OK] El directorio de llaveros APT existe con los permisos solicitados.
+
+Evidencia visual:
+F04_01_keyrings.png
+SHA-256: 96e9219ea5c4fd7ebf7ceb00103a1b2acc84134f66a034653c904a1305d0e0a4
+
+Comando:
+$ sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+
+Salida:
+(sin salida)
+
+Verificación:
+[OK] La clave pública oficial de Docker se descargó sin error.
+
+Evidencia visual:
+F04_01_descarga_clave.png
+SHA-256: 85057c7fec5066542e12f82de2594be4df285ce15e768d1c8cf518092be5b6a0
+
+Comando:
+$ sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+Salida:
+(sin salida)
+
+Verificación:
+[OK] La clave oficial tiene permiso de lectura para APT.
+
+Evidencia visual:
+F04_01_permiso_clave.png
+SHA-256: 3d507cc32981a6aa55d109697d5beab06e9e4412f411b9637b2e789924e29290
+
+Comando:
+$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+Salida:
+(sin salida)
+
+Verificación:
+[OK] La fuente oficial de Docker fue escrita en /etc/apt/sources.list.d/docker.list sin errores.
+
+Evidencia visual:
+F04_01_fuente_docker_creada.png
+SHA-256: 43ab46b599bae18eaa36a8c027b609350f07995d904f961a7a054515f6abd486
+
+Comando:
+$ cat /etc/apt/sources.list.d/docker.list
+
+Salida:
+deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian trixie stable
+
+Verificación:
+[OK] La fuente APT contiene arquitectura amd64, clave oficial, suite trixie y componente stable.
+
+Evidencia visual:
+F04_01_fuente_docker_verificada.png
+SHA-256: 4a2a9e5d4713b7b093e8d0a07e5ad51df59d754a24bc21ebf8b36491cd7e1386
+
+Comando:
+$ sudo apt update
+
+Salida relevante:
+Des: https://download.docker.com/linux/debian trixie InRelease [32.5 kB]
+Des: https://download.docker.com/linux/debian trixie/stable amd64 Packages [51.9 kB]
+Descargados 84.4 kB en 0s (204 kB/s)
+
+Verificación:
+[OK] APT validó y leyó el repositorio oficial de Docker sin errores de firma.
+
+Evidencia visual:
+F04_01_apt_update_docker.png
+SHA-256: 37e7ac3c7d00a7c162b87eec5d19870430aeb491f4069849d745f94711088945
+
+Comando:
+$ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+Resumen:
+Installing:
+  containerd.io  docker-buildx-plugin  docker-ce  docker-ce-cli  docker-compose-plugin
+Installing dependencies:
+  docker-ce-rootless-extras  iptables  libip4tc2  libip6tc2  pigz
+Upgrading: 0, Installing: 10, Removing: 0
+Download size: 102 MB
+Space needed: 390 MB / 50.1 GB available
+Descargados 102 MB en 4s (26.7 MB/s)
+
+Versiones instaladas:
+containerd.io 2.4.2-3~debian.13~trixie
+docker-ce-cli 5:29.9.2-1~debian.13~trixie
+docker-ce 5:29.9.2-1~debian.13~trixie
+docker-buildx-plugin 0.38.1-1~debian.13~trixie
+docker-compose-plugin 5.6.1-1~debian.13~trixie
+
+Verificación:
+[OK] Los cinco paquetes solicitados están configurados.
+[OK] Systemd creó los enlaces de docker.service, docker.socket y containerd.service.
+[OK] No aparece E: ni error de dependencias en la salida completa.
+
+Registro completo:
+F04_01_apt_install_docker.txt
+SHA-256: ce8161e99dcd36c4fd39426d1088d1e6da8a49d0caf11ed9450a69a085ffc960
+
+Comando:
+$ sudo systemctl enable --now docker
+
+Salida:
+Synchronizing state of docker.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable docker
+
+Verificación:
+[OK] Docker quedo habilitado para iniciar con el sistema y se inicio ahora.
+
+Evidencia visual:
+F04_01_docker_enable.png
+SHA-256: c36e77d54e1f94f7eff7939b90340c83408a9bef26cb913b1bebf8a4c368e8f7
+
+Comando:
+$ systemctl is-active docker
+
+Salida:
+active
+
+Verificación:
+[OK] El servicio Docker esta activo.
+
+Evidencia visual:
+F04_01_docker_active.png
+SHA-256: 953c4df4051cbaf28c3c58a48431a60696a1a7ebd6c4ebf34c9d2c417f7e75e6
+
+Comando:
+$ sudo docker version
+
+Salida relevante:
+Client: Docker Engine - Community
+Version: 29.9.2
+API version: 1.56
+Server: Docker Engine - Community
+Version: 29.9.2
+API version: 1.56 (minimum version 1.40)
+containerd:
+Version: v2.4.2
+
+Verificación:
+[OK] El cliente y el daemon Docker responden correctamente.
+
+Evidencia visual:
+F04_01_docker_version.png
+SHA-256: c9994bdc6724446f7b6f2bc2043d2782bc1ac0c91154c3b1609226ac48b127cc
+
+Comando:
+$ sudo docker info
+
+Salida relevante:
+Client Version: 29.9.2
+Plugin Buildx: v0.38.1
+Plugin Compose: v5.6.1
+Server Version: 29.9.2
+Storage Driver: overlayfs
+Cgroup Driver: systemd
+Kernel Version: 6.12.113+deb13-amd64
+Operating System: Debian GNU/Linux 13 (trixie)
+Architecture: x86_64
+CPUs: 4
+Total Memory: 7.743GiB
+Name: servidor-grupo7
+No contiene líneas ERROR.
+
+Verificación:
+[OK] Docker Engine, Buildx y Compose estan operativos y el daemon responde.
+
+Evidencia visual:
+F04_01_docker_info_detail.png
+SHA-256: 3fd00eaa9b94d000933f88aa70613ec7f081cedf1a38d872d7e9421d5a33db56
+
+Cierre del punto de control 3:
+[OK] docker.service habilitado y activo.
+[OK] Cliente y servidor Docker responden.
+[OK] docker info sin errores.
+
+Vista consolidada:
+F04_01_docker_info.png
+SHA-256: eb1d40757a8a88baec37728f5e5ae530f363cfda26964c95591032e4ede6d524

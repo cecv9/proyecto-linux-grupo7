@@ -1,0 +1,207 @@
+Fase 4 - Punto de control 1: prevalidación
+Proyecto Final ISL135 - Grupo 7
+Inicio del registro: 2026-10-29 21:42:47 CST
+
+Comando:
+$ whoami
+
+Salida:
+adminsys
+
+Verificación:
+[OK] La sesión pertenece al usuario requerido adminsys.
+
+Comando:
+$ hostname
+
+Salida:
+servidor-grupo7
+
+Verificación:
+[OK] El nombre del servidor es el requerido servidor-grupo7.
+
+Comando:
+$ . /etc/os-release; printf 'Distribución: %s\nVersión: %s\nClave: %s\n' "$PRETTY_NAME" "$VERSION_ID" "$VERSION_CODENAME"
+
+Salida:
+Distribución: Debian GNU/Linux 13 (trixie)
+Versión: 13
+Clave: trixie
+
+Verificación:
+[OK] La VM ejecuta Debian 13 con nombre clave trixie.
+
+Evidencia visual:
+F04_00_prevalidacion_01_sesion_so.png
+SHA-256: 109a030f83c7c339d456acd82fb595f074119714dcde459ac233e6674c72a29c
+
+Comando:
+$ dpkg --print-architecture
+
+Salida:
+amd64
+
+Verificación:
+[OK] La arquitectura del sistema es amd64.
+
+Comando:
+$ cd /proyecto
+
+Salida:
+(sin salida)
+
+Prompt observado:
+adminsys@servidor-grupo7:/proyecto$
+
+Verificación:
+[OK] El directorio /proyecto existe y la sesión está ubicada en él.
+
+Comando:
+$ git fetch --prune
+
+Salida:
+(sin salida)
+
+Prompt observado:
+adminsys@servidor-grupo7:/proyecto$
+
+Verificación:
+[OK] Git actualizó y podó las referencias remotas sin errores.
+
+Evidencia visual:
+F04_00_prevalidacion_02_git_fetch.png
+SHA-256: cb35880cd903168124ad622f161aa29b45494038e0e912086b11287825721c90
+
+Comando:
+$ git status --short --branch
+
+Salida:
+## main...origin/main
+
+Verificación:
+[OK] El repositorio está en main, sincronizado con origin/main y sin cambios pendientes.
+
+Evidencia visual:
+F04_00_prevalidacion_03_git_limpio.png
+SHA-256: 38efb113ce75d86088b5f41ee7b1602f78dd32a1aa781e6b19bbb5abb2013bd5
+
+Comando:
+$ if command -v docker >/dev/null 2>&1; then
+>     docker --version
+> else
+>     echo "Docker no está instalado"
+> fi
+
+Salida:
+Docker no está instalado
+
+Verificación:
+[OK] El comando docker no está instalado; se puede iniciar una instalación limpia.
+
+Evidencia visual:
+F04_00_prevalidacion_04_docker_ausente.png
+SHA-256: 2459cfb82553f6f04c662a33c784f31e552bb60f0bc1b63d5375edd85f2f8230
+
+Comando:
+$ grep -RhsE '^deb .*docker' /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null || echo "Sin repositorio Docker configurado"
+
+Salida:
+Sin repositorio Docker configurado
+
+Verificación:
+[OK] No hay un repositorio Docker preexistente configurado.
+
+Evidencia visual:
+F04_00_prevalidacion_05_sin_repositorio_docker.png
+SHA-256: 600802cc14814c469793ddf0598d5a534489db7dd02894f9abdec325529be599
+
+Comando:
+$ df -h / /var/lib
+
+Salida:
+S.ficheros     Tamaño Usados Disp Uso% Montado en
+/dev/sda2        55G   5.3G   47G  11% /
+/dev/sda2        55G   5.3G   47G  11% /
+
+Verificación:
+[OK] Hay 47 GB disponibles en el sistema de archivos usado por / y /var/lib.
+
+Evidencia visual:
+F04_00_prevalidacion_06_espacio.png
+SHA-256: ca7e4f095ee968f04d1d27e07f39a61845cfd5010663381bad43c74189401b0b
+
+Comando:
+$ curl -fsSI https://download.docker.com/linux/debian/dists/trixie/stable/Release | head -n 1
+
+Salida:
+curl: (22) The requested URL returned error: 404
+HTTP/2 404
+
+Verificación:
+[BLOQUEO] El repositorio oficial no publica actualmente una suite APT trixie en la URL documentada. No se avanza a la instalación hasta resolver la fuente correcta.
+
+Evidencia visual:
+F04_00_prevalidacion_07_docker_trixie_404.png
+SHA-256: 637de5f262dab4a309fe4cb646e5b6a5fd0432614dbf02ba816e26f7dd987e61
+
+Diagnóstico:
+$ curl -fsSL https://download.docker.com/linux/debian/dists/ | grep -Eo 'bookworm|bullseye|trixie' | sort -u
+
+Salida:
+bookworm
+bullseye
+trixie
+
+Verificación:
+[INFO] trixie aparece en el índice general, pero la estructura exacta de la suite debe confirmarse aparte.
+
+Evidencia visual:
+F04_00_prevalidacion_08_docker_suites.png
+SHA-256: 9ce25fa607478c886420db28e16cf592dfc024262bc7caa9fc70a7f0177739a7
+
+Diagnóstico:
+$ curl -fsSL https://download.docker.com/linux/debian/dists/trixie/ | grep -Eo 'href="[^"]+"'
+
+Salida relevante:
+href="stable/"
+href="test/"
+href="InRelease"
+href="Release"
+href="Release.gpg"
+
+Conclusión:
+[INFO] La suite estable de trixie existe. El archivo Release se encuentra en
+dists/trixie/Release; stable es el componente de la fuente APT. La comprobación
+anterior tenía una ruta incorrecta al añadir stable/Release.
+
+Evidencia visual:
+F04_00_prevalidacion_09_docker_trixie_contenido.png
+SHA-256: 495f730362aedf696f6a6bf1233fe390921cc07e076217680801814392116e78
+
+Comprobación corregida:
+$ curl -fsSI https://download.docker.com/linux/debian/dists/trixie/Release | head -n 1
+
+Salida:
+HTTP/2 200
+
+Verificación:
+[OK] El repositorio oficial de Docker responde correctamente para Debian trixie.
+
+Evidencia visual:
+F04_00_prevalidacion_10_docker_trixie_200.png
+SHA-256: 84168767fbbebe63702013d5dfa75d82cc323708f34695f679721b7e45632465
+
+Cierre del punto de control 1:
+[OK] Usuario: adminsys
+[OK] Hostname: servidor-grupo7
+[OK] Debian 13, trixie
+[OK] Arquitectura: amd64
+[OK] Git limpio y sincronizado con origin/main
+[OK] Docker no instalado
+[OK] Sin repositorio Docker preexistente
+[OK] Espacio disponible: 47 GB
+[OK] Repositorio oficial accesible: HTTP/2 200
+
+Vista consolidada:
+F04_00_prevalidacion.png
+SHA-256: 1020cbb8ee329e2f8521c29625f9cbf574442e997d4014a789359cfc1f359d3b

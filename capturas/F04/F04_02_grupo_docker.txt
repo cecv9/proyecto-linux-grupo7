@@ -1,0 +1,115 @@
+Fase 4 - Punto de control 4: acceso al daemon mediante el grupo docker
+Proyecto Final ISL135 - Grupo 7
+
+Comando:
+$ sudo usermod -aG docker adminsys
+
+Salida:
+(sin salida)
+
+Verificación:
+[OK] adminsys fue agregado al grupo docker sin eliminar sus otros grupos.
+
+Evidencia visual:
+F04_02_usermod_adminsys.png
+SHA-256: 2eb7d97072b00974b4b3f6610015345de7cedb98195f2e8fd8b4395f57c93c0a
+
+Comando:
+$ sudo usermod -aG docker tecnico
+
+Salida:
+(sin salida)
+
+Verificación:
+[OK] tecnico fue agregado al grupo docker sin eliminar sus otros grupos.
+
+Evidencia visual:
+F04_02_usermod_tecnico.png
+SHA-256: cf9add821788112bd52ce8df067fbb309e1e4873403dabb6f4fd3f9719f57f3d
+
+Comando:
+$ getent group docker
+
+Salida:
+docker:x:989:adminsys,tecnico
+
+Verificación:
+[OK] El grupo docker contiene exactamente a adminsys y tecnico.
+
+Evidencia visual:
+F04_02_getent_group_docker.png
+SHA-256: e8c8d09a2674eff30da1419fae93c9f35ed2a340ae837743dd3f92048ce5317c
+
+Comando:
+$ id adminsys
+
+Salida:
+uid=1001(adminsys) gid=1001(adminsys) grupos=1001(adminsys),27(sudo),100(users),989(docker)
+
+Verificación:
+[OK] id adminsys incluye el grupo docker y conserva sudo y sus otros grupos.
+
+Evidencia visual:
+F04_02_id_adminsys.png
+SHA-256: 32c001e8bf2cfc58df86dbab9d24ae3634906bcb15eb58cad1133d58773fb0be
+
+Comando:
+$ id tecnico
+
+Salida:
+uid=1002(tecnico) gid=1002(tecnico) grupos=1002(tecnico),100(users),1004(soporte),989(docker)
+
+Verificación:
+[OK] id tecnico incluye el grupo docker y conserva soporte y sus otros grupos.
+
+Evidencia visual:
+F04_02_id_tecnico.png
+SHA-256: 8a5ece55d26e411483345f620258822dfa770d6a60a3637c752eb81b0db8a878
+
+Comando:
+$ newgrp docker
+
+Salida:
+(sin salida; abrió una nueva sesión de shell)
+
+Verificación:
+[OK] El grupo docker quedó activo en la sesión actual.
+
+Evidencia visual:
+F04_02_newgrp_docker.png
+SHA-256: b8dfe45252673448d413e86d2167903e5a2b4d0913f70a4691dcdac6d3161ece
+
+Comando:
+$ docker ps
+
+Salida:
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+Verificación:
+[OK] adminsys puede acceder al daemon sin sudo; no hay permission denied.
+
+Evidencia visual:
+F04_02_adminsys_sin_sudo.png
+SHA-256: 5ec9cc4bd8335e6a778356e64b30d763a109d2435849163abc6fe403a5d60a3c
+
+Comando:
+$ sudo -u tecnico -i docker ps
+
+Salida:
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+Verificación:
+[OK] tecnico puede acceder al daemon sin sudo; no hay permission denied.
+
+Cierre del punto de control 4:
+[OK] docker:x:989:adminsys,tecnico
+[OK] La pertenencia aparece en id adminsys e id tecnico.
+[OK] adminsys y tecnico acceden a dockerd sin sudo.
+
+Evidencia visual:
+F04_02_tecnico_sin_sudo.png
+SHA-256: 78e31b46e7eaa2d2cebb05b24b5d6ee1a22b742c279c9380de2b2d17cb0db87e
+
+Vista consolidada:
+F04_02_grupo_docker.png
+SHA-256: b46ea5db61cd1dad079559045efbaff160bda8909aa5091b0ecfce9718b9fa41
