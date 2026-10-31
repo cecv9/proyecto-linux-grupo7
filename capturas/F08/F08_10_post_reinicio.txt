@@ -1,0 +1,74 @@
+==================================================
+ VERIFICACIÓN INTEGRAL - PROYECTO ISL135
+ Fecha: 2026-10-30 22:30:42
+ Host:  servidor-grupo7
+ Usuario: adminsys
+==================================================
+[0;32m[OK][0m Hostname correcto: servidor-grupo7
+[0;32m[OK][0m Existe el usuario adminsys
+[0;32m[OK][0m Existe el usuario tecnico
+[0;32m[OK][0m Existe el usuario visitante
+[0;32m[OK][0m adminsys pertenece a sudo
+[0;32m[OK][0m tecnico pertenece a soporte
+[0;32m[OK][0m visitante pertenece a web
+[0;32m[OK][0m adminsys pertenece al grupo docker
+[0;32m[OK][0m tecnico pertenece al grupo docker
+[0;32m[OK][0m Existe /proyecto/datos
+[0;32m[OK][0m Existe /proyecto/web
+[0;32m[OK][0m Existe /proyecto/scripts
+[0;32m[OK][0m Existe /proyecto/capturas
+[0;32m[OK][0m El usuario actual puede escribir en /proyecto
+[0;32m[OK][0m datos: grupo soporte
+[0;32m[OK][0m web: grupo web
+[0;32m[OK][0m datos tiene setgid (drwxrwsr-x)
+[0;32m[OK][0m web tiene setgid (drwxrwsr-x)
+[0;32m[OK][0m Existe /proyecto/web/index.html
+[0;32m[OK][0m Existe /proyecto/Dockerfile
+[0;32m[OK][0m reporte_sistema.sh es ejecutable
+[0;32m[OK][0m El reporte contiene: REPORTE DEL SISTEMA
+[0;32m[OK][0m El reporte contiene: Hostname
+[0;32m[OK][0m El reporte contiene: Usuarios conectados
+[0;32m[OK][0m El reporte contiene: Disco principal
+[0;32m[OK][0m El reporte contiene: RAM disponible
+[0;32m[OK][0m El reporte contiene: Contenedores Docker
+[0;32m[OK][0m Existe /etc/cron.d/proyecto
+[0;32m[OK][0m Cron programado cada 30 minutos
+[0;32m[OK][0m Servicio cron activo
+[0;32m[OK][0m Servicio cron habilitado
+[0;32m[OK][0m Log de cron con contenido (153 líneas)
+[0;32m[OK][0m Log actualizado en los últimos 35 minutos
+[0;32m[OK][0m Docker instalado: Docker version 29.9.2, build a82e528
+[0;32m[OK][0m Servicio docker activo
+[0;32m[OK][0m Servicio docker habilitado
+[0;32m[OK][0m El usuario actual puede usar Docker
+[0;32m[OK][0m Existe una imagen servidor-grupoN
+[0;32m[OK][0m Contenedor activo: nginx-basico
+[0;32m[OK][0m Contenedor activo: nginx-personalizado
+[0;32m[OK][0m Contenedor activo: nginx-red
+[0;32m[OK][0m Contenedor activo: nginx-volumen
+[0;32m[OK][0m nginx-basico monta /proyecto/web
+[0;32m[OK][0m nginx-red monta /proyecto/web
+[0;32m[OK][0m nginx-volumen usa volumen-web
+[0;32m[OK][0m http://localhost:8080 -> 200
+[0;32m[OK][0m http://localhost:8081 -> 200
+[0;32m[OK][0m http://localhost:8082 -> 200
+[0;32m[OK][0m http://localhost:8083 -> 200
+[0;32m[OK][0m Red red-proyecto existe
+[0;32m[OK][0m nginx-red está conectado a red-proyecto
+[0;32m[OK][0m Volumen volumen-web existe
+[0;32m[OK][0m El volumen contiene index.html
+[0;32m[OK][0m Repositorio Git en /proyecto
+[0;32m[OK][0m Remoto origin: git@github.com:cecv9/proyecto-linux-grupo7.git
+[0;32m[OK][0m Existe README.md
+[0;32m[OK][0m Existe .gitignore
+[0;32m[OK][0m Git sin cambios pendientes
+[0;32m[OK][0m Commits de 8 autores distintos
+[0;32m[OK][0m El repositorio no contiene OVA/VDI/ISO
+[1;33m[INFO][0m Últimos commits:
+9956733 Fase 8: evidencia de verificación integral aprobada
+209975a Fase 8: verificador integral y evidencias iniciales
+32b85e7 Fase 7: evidencia snapshot 07-red-volumen
+cfb5da5 Fase 7: red personalizada y volumen persistente
+c6fdbea Fase 6: evidencia snapshot 06-imagen
+==================================================
+[0;32mRESULTADO: todas las verificaciones pasaron.[0m
