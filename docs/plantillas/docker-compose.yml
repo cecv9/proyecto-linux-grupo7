@@ -1,0 +1,55 @@
+# OPCIONAL: este archivo NO sustituye las fases 5-7 del enunciado.
+# Sirve para recrear el entorno completo de una sola vez después de la entrega.
+# Uso: docker compose up -d
+# Requiere que la imagen servidor-grupo7 se construya con el Dockerfile del proyecto.
+# Si ya existen los contenedores de las fases 5-7, elimínalos antes:
+#   docker rm -f nginx-basico nginx-personalizado nginx-red nginx-volumen
+
+services:
+  nginx-basico:
+    image: nginx:latest
+    container_name: nginx-basico
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+
+  nginx-personalizado:
+    build: .
+    image: servidor-grupo7
+    container_name: nginx-personalizado
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+
+  nginx-red:
+    image: nginx:latest
+    container_name: nginx-red
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+    networks:
+      - red-proyecto
+
+  nginx-volumen:
+    image: nginx:latest
+    container_name: nginx-volumen
+    restart: unless-stopped
+    ports:
+      - "8083:80"
+    volumes:
+      - volumen-web:/usr/share/nginx/html
+    networks:
+      - red-proyecto
+
+networks:
+  red-proyecto:
+    name: red-proyecto
+    driver: bridge
+
+volumes:
+  volumen-web:
+    name: volumen-web

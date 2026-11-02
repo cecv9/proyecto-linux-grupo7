@@ -1,0 +1,5 @@
+# Reporte del sistema cada 30 minutos - Proyecto ISL135
+# Instalar como /etc/cron.d/proyecto (propietario root, permisos 644)
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+*/30 * * * * root /proyecto/scripts/reporte_sistema.sh >> /var/log/proyecto/reporte_sistema.log 2>&1

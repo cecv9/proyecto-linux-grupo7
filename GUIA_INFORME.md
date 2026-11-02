@@ -3,6 +3,13 @@
 Esta guía sirve para convertir el borrador `DOCUMENTACIONP.docx` en un informe
 final ordenado, con la misma estructura de fases que el repositorio.
 
+> **Atajo:** el repositorio ya incluye dos borradores generados:
+> [`docs/INFORME_FINAL_GRUPO7_RESUMIDO.md`](docs/INFORME_FINAL_GRUPO7_RESUMIDO.md)
+> (53 evidencias clave, recomendado para entregar) y
+> [`docs/INFORME_FINAL_GRUPO7.md`](docs/INFORME_FINAL_GRUPO7.md)
+> (269 evidencias, útil como anexo). Puedes usarlos como base y ajustar la
+> redacción.
+
 ## 1. Estructura recomendada del informe
 
 ```text

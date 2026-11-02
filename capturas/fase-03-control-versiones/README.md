@@ -61,6 +61,7 @@ git shortlog -sne
 | [`F03_04e_commit_evidencias.png`](F03_04e_commit_evidencias.png) | Commit de evidencias. |
 | [`F03_04f_push_evidencias.png`](F03_04f_push_evidencias.png) | Push de evidencias. |
 | [`F03_04g_commit_final_evidencias.png`](F03_04g_commit_final_evidencias.png) | Commit final de evidencias. |
+| [`F03_04h_cierre_evidencias.png`](F03_04h_cierre_evidencias.png) | Cierre de evidencias de la fase 3. |
 | [`F03_05_snapshot.png`](F03_05_snapshot.png) | Snapshot de cierre de la fase 3. |
 
 ## Resultado

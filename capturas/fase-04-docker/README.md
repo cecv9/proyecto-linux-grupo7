@@ -70,8 +70,13 @@ docker images
 | [`F04_03_hello_world.png`](F04_03_hello_world.png) | Prueba oficial hello-world de Docker. |
 | [`F04_03_hello_world.txt`](F04_03_hello_world.txt) | Prueba hello-world. |
 | [`F04_03_hello_world_01_ejecucion.png`](F04_03_hello_world_01_ejecucion.png) | Ejecución de la prueba hello-world. |
+| [`F04_04_commit.png`](F04_04_commit.png) | Commit de evidencias de la fase 4. |
+| [`F04_04_evidencias_en_vm.png`](F04_04_evidencias_en_vm.png) | Evidencias dentro de la VM. |
+| [`F04_04_git_add.png`](F04_04_git_add.png) | Preparación de evidencias con git add. |
+| [`F04_04_git_diff_cached.png`](F04_04_git_diff_cached.png) | Revisión de cambios preparados con git diff --cached. |
 | [`F04_04_snapshot.png`](F04_04_snapshot.png) | Snapshot. |
 | [`F04_04_snapshot.txt`](F04_04_snapshot.txt) | Snapshot. |
+| [`F04_04_verificacion_nombres_fallida.png`](F04_04_verificacion_nombres_fallida.png) | Verificación de nombres fallida. |
 
 ## Resultado
 

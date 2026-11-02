@@ -69,10 +69,17 @@ repositorio Git versionado en GitHub.
 │   ├── fase-05-nginx-basico/
 │   ├── fase-06-imagen-personalizada/
 │   ├── fase-07-redes-volumenes/
-│   └── fase-08-pruebas-verificacion/
+│   ├── fase-08-pruebas-verificacion/
+│   └── ova-exportacion/     # Exportación, checksum e importación de la OVA
+├── docs/                    # Documentación oficial y plantillas
+│   ├── README.md
+│   ├── oficial/
+│   └── plantillas/
 ├── Dockerfile              # Imagen personalizada
 ├── .dockerignore
 ├── .gitignore
+├── GUIA_VM.md
+├── GUIA_INFORME.md
 └── README.md
 ```
 
@@ -95,6 +102,13 @@ Cada carpeta de fase contiene sus imágenes y un `README.md` con el objetivo, lo
 
 Si la VM se importa con otro nombre, cambia `Debian 13` por el nombre que muestre
 `VBoxManage list vms`. La guía paso a paso está en [`GUIA_VM.md`](GUIA_VM.md).
+
+## OVA
+
+La máquina virtual también se entrega como `proyecto-isl135-grupo7-001.ova` con
+su checksum SHA-256. La OVA pesa aproximadamente 4.2 GB y **no se sube a GitHub**.
+Las evidencias de exportación, verificación e importación están en
+[`capturas/ova-exportacion`](capturas/ova-exportacion/README.md).
 
 ## Instalación
 
@@ -146,6 +160,9 @@ virtual en `/proyecto/capturas/`.
 
 ## Documentación
 
+- [`docs/README.md`](docs/README.md): documentación oficial completa y plantillas.
+- [`docs/INFORME_FINAL_GRUPO7_RESUMIDO.md`](docs/INFORME_FINAL_GRUPO7_RESUMIDO.md): borrador del informe con las 53 evidencias clave.
+- [`docs/INFORME_FINAL_GRUPO7.md`](docs/INFORME_FINAL_GRUPO7.md): versión completa con las 269 evidencias.
 - [`GUIA_VM.md`](GUIA_VM.md): cómo importar, encender y verificar la máquina virtual.
 - [`GUIA_INFORME.md`](GUIA_INFORME.md): cómo ordenar el informe y exportarlo a PDF.
 - [`capturas/INDICE.md`](capturas/INDICE.md): índice general de evidencias por fase.

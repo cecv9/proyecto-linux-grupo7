@@ -27,6 +27,8 @@ docker cp /proyecto/web/favicon.svg nginx-volumen:/usr/share/nginx/html/favicon.
 
 | Imagen / archivo | Descripción |
 |---|---|
+| [`F07_00_commit.png`](F07_00_commit.png) | Commit de la fase 7. |
+| [`F07_00_commit_snapshot.png`](F07_00_commit_snapshot.png) | Commit del snapshot de la fase 7. |
 | [`F07_00_contenedor_antes_recrear.png`](F07_00_contenedor_antes_recrear.png) | Contenedor antes de recrear. |
 | [`F07_00_contenedor_ausente.png`](F07_00_contenedor_ausente.png) | Contenedor ausente. |
 | [`F07_00_contenedor_eliminado.png`](F07_00_contenedor_eliminado.png) | Contenedor eliminado. |
@@ -36,6 +38,14 @@ docker cp /proyecto/web/favicon.svg nginx-volumen:/usr/share/nginx/html/favicon.
 | [`F07_00_cp_favicon.png`](F07_00_cp_favicon.png) | Copia de favicon.svg al volumen. |
 | [`F07_00_cp_index.png`](F07_00_cp_index.png) | Copia de index.html al volumen. |
 | [`F07_00_creacion_red.png`](F07_00_creacion_red.png) | Creación de la red personalizada. |
+| [`F07_00_diff_check.png`](F07_00_diff_check.png) | Revisión de espacios con git diff --check. |
+| [`F07_00_diff_evidencias.png`](F07_00_diff_evidencias.png) | Diferencia de evidencias con git diff. |
+| [`F07_00_diff_snapshot.png`](F07_00_diff_snapshot.png) | Diferencia del snapshot con git diff. |
+| [`F07_00_evidencias_en_vm_antes_permisos.png`](F07_00_evidencias_en_vm_antes_permisos.png) | Evidencias en la VM antes de ajustar permisos. |
+| [`F07_00_git_add.png`](F07_00_git_add.png) | Preparación de evidencias con git add. |
+| [`F07_00_git_add_snapshot.png`](F07_00_git_add_snapshot.png) | Preparación del snapshot con git add. |
+| [`F07_00_git_antes_commit.png`](F07_00_git_antes_commit.png) | Estado de Git antes del commit. |
+| [`F07_00_git_snapshot.png`](F07_00_git_snapshot.png) | Estado de Git del snapshot. |
 | [`F07_00_http_8082.png`](F07_00_http_8082.png) | Respuesta HTTP en 8082. |
 | [`F07_00_http_8083.png`](F07_00_http_8083.png) | Respuesta HTTP en 8083. |
 | [`F07_00_http_8083_recreado.png`](F07_00_http_8083_recreado.png) | Respuesta HTTP en 8083 tras recrear. |
@@ -49,6 +59,8 @@ docker cp /proyecto/web/favicon.svg nginx-volumen:/usr/share/nginx/html/favicon.
 | [`F07_00_nginx_volumen_creado.png`](F07_00_nginx_volumen_creado.png) | Contenedor nginx-volumen creado. |
 | [`F07_00_nginx_volumen_inspect.png`](F07_00_nginx_volumen_inspect.png) | Inspección de nginx-volumen. |
 | [`F07_00_nginx_volumen_recreado.png`](F07_00_nginx_volumen_recreado.png) | Contenedor nginx-volumen recreado. |
+| [`F07_00_permisos_evidencias.png`](F07_00_permisos_evidencias.png) | Permisos de las evidencias. |
+| [`F07_00_permisos_snapshot.png`](F07_00_permisos_snapshot.png) | Permisos del snapshot. |
 | [`F07_00_prevalidacion_01_identidad.png`](F07_00_prevalidacion_01_identidad.png) | Comprobación previa: identidad del usuario. |
 | [`F07_00_prevalidacion_02_contenedores.png`](F07_00_prevalidacion_02_contenedores.png) | Comprobación previa: contenedores activos. |
 | [`F07_00_prevalidacion_03_http_previos.png`](F07_00_prevalidacion_03_http_previos.png) | Comprobación previa: respuestas HTTP anteriores. |
@@ -57,12 +69,17 @@ docker cp /proyecto/web/favicon.svg nginx-volumen:/usr/share/nginx/html/favicon.
 | [`F07_00_prevalidacion_06_puertos_libres.png`](F07_00_prevalidacion_06_puertos_libres.png) | Comprobación previa: puertos libres. |
 | [`F07_00_prevalidacion_07_red_libre.png`](F07_00_prevalidacion_07_red_libre.png) | Comprobación previa: red libre. |
 | [`F07_00_prevalidacion_08_volumen_libre.png`](F07_00_prevalidacion_08_volumen_libre.png) | Comprobación previa: volumen libre. |
+| [`F07_00_push.png`](F07_00_push.png) | Push de la fase 7. |
+| [`F07_00_push_snapshot.png`](F07_00_push_snapshot.png) | Push del snapshot. |
 | [`F07_00_red_final.png`](F07_00_red_final.png) | Estado final de la red. |
 | [`F07_00_red_inspect_inicial.png`](F07_00_red_inspect_inicial.png) | Inspección inicial de la red. |
 | [`F07_00_red_registrada.png`](F07_00_red_registrada.png) | Red registrada. |
 | [`F07_00_servicios_final.png`](F07_00_servicios_final.png) | Estado final de los servicios. |
 | [`F07_00_testigo_creado.png`](F07_00_testigo_creado.png) | Archivo testigo creado en el volumen. |
 | [`F07_00_testigo_despues_recrear.png`](F07_00_testigo_despues_recrear.png) | Archivo testigo después de recrear. |
+| [`F07_00_transferencia_evidencias.png`](F07_00_transferencia_evidencias.png) | Transferencia de evidencias a la VM. |
+| [`F07_00_transferencia_snapshot.png`](F07_00_transferencia_snapshot.png) | Transferencia del snapshot. |
+| [`F07_00_verificacion_permisos.png`](F07_00_verificacion_permisos.png) | Verificación de permisos. |
 | [`F07_00_volumen_creado.png`](F07_00_volumen_creado.png) | Volumen creado. |
 | [`F07_00_volumen_despues_eliminar.png`](F07_00_volumen_despues_eliminar.png) | Estado del volumen después de eliminar el contenedor. |
 | [`F07_00_volumen_inspect.png`](F07_00_volumen_inspect.png) | Inspección del volumen. |

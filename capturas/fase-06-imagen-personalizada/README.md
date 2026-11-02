@@ -35,6 +35,7 @@ docker inspect -f '{json .Mounts}' nginx-personalizado
 | [`F06_03d_montaje_logs.png`](F06_03d_montaje_logs.png) | Montaje y logs. |
 | [`F06_04_comparacion.png`](F06_04_comparacion.png) | Comparación entre Nginx oficial y la imagen personalizada. |
 | [`F06_05_snapshot.png`](F06_05_snapshot.png) | Snapshot. |
+| [`F06_06_verificacion_final.png`](F06_06_verificacion_final.png) | Verificación final de la fase 6. |
 
 ## Resultado
 

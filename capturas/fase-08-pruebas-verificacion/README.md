@@ -64,6 +64,16 @@ sudo reboot
 | [`F08_10_post_reinicio.txt`](F08_10_post_reinicio.txt) | Verificación posterior al reinicio. |
 | [`F08_10_verificacion_post_reinicio.png`](F08_10_verificacion_post_reinicio.png) | Verificación integral posterior al reinicio. |
 | [`F08_10a_log_post_reinicio_copiado.png`](F08_10a_log_post_reinicio_copiado.png) | Log posterior al reinicio. |
+| [`F08_10b_transferencia_final.png`](F08_10b_transferencia_final.png) | Transferencia final de evidencias. |
+| [`F08_10c_revision_reinicio.png`](F08_10c_revision_reinicio.png) | Revisión después del reinicio. |
+| [`F08_10d_git_add_reinicio.png`](F08_10d_git_add_reinicio.png) | Preparación de evidencias del reinicio con git add. |
+| [`F08_10e_cambios_reinicio_preparados.png`](F08_10e_cambios_reinicio_preparados.png) | Cambios del reinicio preparados. |
+| [`F08_10f_commit_reinicio.png`](F08_10f_commit_reinicio.png) | Commit de las evidencias del reinicio. |
+| [`F08_10g_push_final.png`](F08_10g_push_final.png) | Push final. |
+| [`F08_10h_git_limpio_final.png`](F08_10h_git_limpio_final.png) | Repositorio limpio al final. |
+| [`F08_11_snapshot_08_final.png`](F08_11_snapshot_08_final.png) | Snapshot 08-final creado. |
+| [`F08_11a_snapshot_verificado.png`](F08_11a_snapshot_verificado.png) | Snapshot 08-final verificado. |
+| [`F08_11a_snapshots_prefinal.png`](F08_11a_snapshots_prefinal.png) | Listado de snapshots antes del cierre. |
 
 ## Resultado
 
