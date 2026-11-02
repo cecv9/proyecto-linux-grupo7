@@ -55,6 +55,8 @@ En [`plantillas/`](plantillas/) están los archivos base:
 | Archivo | Uso |
 |---|---|
 | [`INFORME_FINAL_GRUPO7_RESUMIDO.md`](INFORME_FINAL_GRUPO7_RESUMIDO.md) | Versión recomendada para entregar: incluye las 53 evidencias clave. |
+| [`INFORME_FINAL_GRUPO7_RESUMIDO.docx`](INFORME_FINAL_GRUPO7_RESUMIDO.docx) | Versión editable en Word, con las imágenes insertadas. |
+| [`Informe_Proyecto_ISL135_Grupo7.pdf`](Informe_Proyecto_ISL135_Grupo7.pdf) | PDF final con portada, índice y 53 figuras. |
 | [`INFORME_FINAL_GRUPO7.md`](INFORME_FINAL_GRUPO7.md) | Versión completa con las 269 evidencias, útil como anexo o fuente de consulta. |
 
 Para convertirlos a PDF desde la raíz del repositorio:
