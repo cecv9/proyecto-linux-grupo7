@@ -144,6 +144,12 @@ con el objetivo de la fase, los comandos principales y la descripción breve de
 cada imagen. Las evidencias también están respaldadas dentro de la máquina
 virtual en `/proyecto/capturas/`.
 
+## Documentación
+
+- [`GUIA_VM.md`](GUIA_VM.md): cómo importar, encender y verificar la máquina virtual.
+- [`GUIA_INFORME.md`](GUIA_INFORME.md): cómo ordenar el informe y exportarlo a PDF.
+- [`capturas/INDICE.md`](capturas/INDICE.md): índice general de evidencias por fase.
+
 ## Seguridad
 
 El repositorio no contiene contraseñas, tokens ni claves privadas. El acceso a
