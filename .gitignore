@@ -6,3 +6,4 @@
 *.vdi
 *.iso
 .docker/
+capturas_backup_*/
