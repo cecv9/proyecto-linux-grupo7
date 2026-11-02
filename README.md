@@ -37,19 +37,46 @@ repositorio Git versionado en GitHub.
 | `8082` | `nginx-red` | Contenedor conectado a `red-proyecto` |
 | `8083` | `nginx-volumen` | Contenido persistente en `volumen-web` |
 
+## Fases del proyecto
+
+| Fase | Tema | Evidencias |
+|---|---|---|
+| 00 | Preparación del entorno | [`capturas/fase-00-preparacion`](capturas/fase-00-preparacion/README.md) |
+| 01 | Administración básica, usuarios y permisos | [`capturas/fase-01-administracion-basica`](capturas/fase-01-administracion-basica/README.md) |
+| 02 | Automatización y monitoreo | [`capturas/fase-02-automatizacion-monitoreo`](capturas/fase-02-automatizacion-monitoreo/README.md) |
+| 03 | Control de versiones y GitHub | [`capturas/fase-03-control-versiones`](capturas/fase-03-control-versiones/README.md) |
+| 04 | Instalación y configuración de Docker | [`capturas/fase-04-docker`](capturas/fase-04-docker/README.md) |
+| 05 | Servidor web Nginx básico | [`capturas/fase-05-nginx-basico`](capturas/fase-05-nginx-basico/README.md) |
+| 06 | Imagen personalizada con Dockerfile | [`capturas/fase-06-imagen-personalizada`](capturas/fase-06-imagen-personalizada/README.md) |
+| 07 | Redes y volúmenes de Docker | [`capturas/fase-07-redes-volumenes`](capturas/fase-07-redes-volumenes/README.md) |
+| 08 | Pruebas y verificación final | [`capturas/fase-08-pruebas-verificacion`](capturas/fase-08-pruebas-verificacion/README.md) |
+
 ## Estructura del repositorio
 
 ```text
 /proyecto/
 ├── datos/                  # Archivos de configuración
+│   └── aportes/            # Aportes individuales de los integrantes
 ├── web/                    # Sitio servido por Nginx
 ├── scripts/                # Automatización y verificación
-├── capturas/               # Evidencias de las fases
+├── capturas/               # Evidencias organizadas por fase
+│   ├── INDICE.md           # Índice general de evidencias
+│   ├── fase-00-preparacion/
+│   ├── fase-01-administracion-basica/
+│   ├── fase-02-automatizacion-monitoreo/
+│   ├── fase-03-control-versiones/
+│   ├── fase-04-docker/
+│   ├── fase-05-nginx-basico/
+│   ├── fase-06-imagen-personalizada/
+│   ├── fase-07-redes-volumenes/
+│   └── fase-08-pruebas-verificacion/
 ├── Dockerfile              # Imagen personalizada
 ├── .dockerignore
 ├── .gitignore
 └── README.md
 ```
+
+Cada carpeta de fase contiene sus imágenes y un `README.md` con el objetivo, los comandos principales y la descripción breve de cada evidencia. El índice general está en [`capturas/INDICE.md`](capturas/INDICE.md).
 
 ## Requisitos
 
@@ -58,6 +85,16 @@ repositorio Git versionado en GitHub.
 - Git
 - Docker Engine
 - Acceso a los puertos `8080` a `8083`
+
+## Máquina virtual
+
+- Nombre de la VM en VirtualBox: `Debian 13`.
+- Hostname interno: `servidor-grupo7`.
+- Acceso SSH: `ssh -p 2222 adminsys@127.0.0.1`.
+- Puertos publicados: `8080`, `8081`, `8082` y `8083`.
+
+Si la VM se importa con otro nombre, cambia `Debian 13` por el nombre que muestre
+`VBoxManage list vms`. La guía paso a paso está en [`GUIA_VM.md`](GUIA_VM.md).
 
 ## Instalación
 
@@ -81,6 +118,16 @@ curl -I http://localhost:8083
 
 Cada puerto debe responder `HTTP/1.1 200 OK`.
 
+### Demo rápida
+
+```bash
+docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'
+for p in 8080 8081 8082 8083; do
+  curl -s -o /dev/null -w "$p -> %{http_code}\n" "http://localhost:$p"
+done
+/proyecto/scripts/verificar_proyecto.sh
+```
+
 ## Scripts y automatización
 
 `scripts/reporte_sistema.sh` muestra fecha, hostname, usuarios conectados,
@@ -91,8 +138,11 @@ en `/var/log/proyecto/reporte_sistema.log`.
 
 ## Evidencias
 
-Las capturas de las fases están documentadas en `capturas/INDICE.md` y
-respaldadas dentro de la máquina virtual en `/proyecto/capturas/`.
+Las capturas están organizadas por fase en `capturas/`. El índice general está en
+[`capturas/INDICE.md`](capturas/INDICE.md). Cada carpeta incluye un `README.md`
+con el objetivo de la fase, los comandos principales y la descripción breve de
+cada imagen. Las evidencias también están respaldadas dentro de la máquina
+virtual en `/proyecto/capturas/`.
 
 ## Seguridad
 
